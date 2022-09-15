@@ -1,0 +1,32 @@
+/*Write a java program to push the zeroes to the beginning of the array. 
+Sample I/O:
+11
+12 25 0 0 2 0 6 8 0 18 0
+0 0 0 0 0 12 25 2 6 8 18*/
+import java.util.*;
+
+class Main{
+    public static void main(String[] args){
+        int n;
+        Scanner input = new Scanner(System.in);
+        n = input.nextInt();
+        int i,z=0;
+        int arr[] = new int[n];
+        for(i=0;i<n;i++){
+            arr[i] = input.nextInt();
+            if(arr[i] == 0){
+                z += 1;
+            }
+        }
+        int arr2[] = new int[n];
+        for(i=0;i<n;i++){
+            if(arr[i]!=0){
+                arr2[z] = arr[i];
+                z++;
+            }
+        }
+        for(i=0;i<n;i++){
+            System.out.print(arr2[i]+" ");
+        }
+    }
+}
