@@ -1,0 +1,28 @@
+/*Write a Java program to find the LCM of two numbers.
+Sample Input:
+72 120
+Sample Output
+360*/
+
+import java.util.Scanner;
+class Main
+{
+    public static void main(String s[])
+    {
+        int n1,n2,lcm;
+        Scanner s1=new Scanner(System.in);
+        n1=s1.nextInt();
+        n2=s1.nextInt();
+        lcm=(n1>n2)?n1:n2;
+       
+        while(true)
+        {
+        if(lcm%n1==0&&lcm%n2==0)
+        {
+            System.out.println(lcm);
+            break;
+        }
+        lcm++;
+        }
+    }
+}
