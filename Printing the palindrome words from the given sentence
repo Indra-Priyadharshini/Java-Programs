@@ -1,0 +1,29 @@
+/*Sample I/O:
+madam is teaching ada language
+madam
+ada*/
+
+import java.util.*;
+public class Main
+{
+    public static void main(String ... args)
+    {
+        Scanner sob=new Scanner(System.in);
+        String s1=sob.nextLine();
+        String a[]=s1.split(" ");
+        for(String s:a)
+        {
+            s=s.toLowerCase();
+            String r="";
+            for(int i=s.length()-1;i>=0;i--)
+            {
+                r=r+s.charAt(i);
+            }
+            if(r.equals(s))
+            {
+                System.out.println(s);
+            }
+            
+        }
+    }
+}
