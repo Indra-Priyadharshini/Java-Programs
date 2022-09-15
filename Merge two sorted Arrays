@@ -1,0 +1,49 @@
+/*Given two sorted arrays of different size, merge these arrays into a single sorted array.
+Sample I/O:
+5
+12 18 26 27 32
+8
+8 10 15 28 36 45 78 96
+Output:
+8 10 12 15 18 26 27 28 32 36 45 78 96*/
+
+import java.util.*;
+
+class Main{
+    public static void main(String[] args){
+        int n,m;
+        Scanner input = new Scanner(System.in);
+        n = input.nextInt();
+        int i;
+        int arr[] = new int[n];
+        for(i=0;i<n;i++){
+            arr[i] = input.nextInt();
+        }
+        m = input.nextInt();
+        int arr2[] = new int[m];
+        int j = m+n;
+        for(i=0;i<m;i++){
+            arr2[i] = input.nextInt();
+        }
+        int arr3[] = new int[m+n];
+        for(i=0;i<n;i++){
+            arr3[i] = arr[i];
+        }
+        for(i=0;i<m;i++){
+            arr3[n] = arr2[i];
+            n++;
+        }
+        for(m=0;m<j;m++){
+            for(n=0;n<j-1;n++){
+                if(arr3[n]>arr3[n+1]){
+                    int temp = arr3[n];
+                    arr3[n] = arr3[n+1];
+                    arr3[n+1] = temp;
+                }
+            }
+        }
+        for(i=0;i<j;i++){
+            System.out.print(arr3[i]+" ");
+        }
+    }
+}
