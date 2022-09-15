@@ -1,0 +1,21 @@
+/*(There may be multiple spaces in a word)
+Sample I/O:
+India  is  my country
+India 
+is
+my
+country*/
+import java.util.*;
+class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        String n=sc.nextLine();
+        for(String w:n.split(" "))
+        {
+        w= w.replaceAll("[\\n\t ]", "");
+        System.out.println(w);
+        }
+    }
+}
