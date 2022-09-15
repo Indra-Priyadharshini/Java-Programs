@@ -1,0 +1,23 @@
+/*Write a Program to calculate and print the factorial of given number.
+n!=n*(n-1)*(n-2)*....*1
+If the input is 0, print 1. Otherwise print the factorial of the given number.
+Input:
+Integer - n
+Output:
+Integer - Factorial of n*/
+import java.util.Scanner;
+class Main
+{
+    public static void main(String s[])
+    {
+        int n,i,f=1;
+        Scanner s1=new Scanner(System.in);
+        n=s1.nextInt();
+        if(n==0)
+        f=1;
+        for(i=1;i<=n;i++)
+        f*=i;
+        System.out.println(f);
+        
+    }
+}
