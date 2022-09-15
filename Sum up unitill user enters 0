@@ -1,0 +1,20 @@
+/*Write a program to find sum of unspecified number of integers and display the sum.
+Read a set of integers from user. You can stop calculating sum if the user enters 0.
+2 2 2 2 2 2 2 0
+14*/
+
+import java.util.*;
+class Main
+{
+    public static void main(String s[])
+    {
+        Scanner ss=new Scanner(System.in);
+        int x,sum=0;
+        
+        while((x=ss.nextInt())!=0)
+        {
+            sum+=x;
+        }
+        System.out.println(sum);
+    }
+}
