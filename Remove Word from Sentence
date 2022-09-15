@@ -1,0 +1,19 @@
+/*Sample I/O:
+The VIT Quick VIT Brown Fox VIT jumps VIT over VIT the mountain.
+The Quick Brown Fox jumps over the mountain.*/
+import java.util.*;
+class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        String s=sc.nextLine();
+        for(String w:s.split(" "))
+        {
+            if(w.equals("VIT"))
+            continue;
+            else
+            System.out.print(w+" ");
+        }
+    }
+}
