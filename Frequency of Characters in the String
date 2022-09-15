@@ -1,0 +1,38 @@
+/*Read a string, print the number of times each character is appearing in the string using Java.
+Sample I/O:
+intellectual ability
+i: 3
+n: 1
+t: 3
+e: 2
+l: 4
+c: 1
+u: 1
+a: 2
+b: 1
+y: 1*/
+
+import java.util.*;
+class Main{
+    public static void main(String s[]){
+        Scanner ip=new Scanner(System.in);
+        String a=ip.nextLine();
+        int i,j;
+        char ch[]=a.toCharArray();
+        int f[]=new int[a.length()];
+        for(i=0;i<a.length();i++){
+            f[i]=1;
+            for(j=i+1;j<a.length();j++){
+                if(ch[i]==ch[j]){
+                f[i]++;
+                ch[j]='*';
+            }
+        }
+        
+    }
+    for(i=0;i<f.length;i++)
+    {
+        if(ch[i]!='*'&&ch[i]!=' ')
+        System.out.println(ch[i]+": "+f[i]);
+    }
+}}
