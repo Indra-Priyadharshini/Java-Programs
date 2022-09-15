@@ -1,0 +1,25 @@
+/*Count the special characters in the given string (excluding spaces) using java program
+Sample I/O:
+India is&&& my*** Country!!!
+9*/
+
+import java.util.*;
+class Main
+{
+    public static void main(String args[])
+    {
+        int c=0,n;
+        Scanner sc=new Scanner(System.in);
+        String s=sc.nextLine();
+        char a[]=s.toCharArray();
+        for(int i=0;i<s.length();i++)
+        {
+        if(((int)(a[i])>=33 && (int)(a[i])<=47) || ((int)(a[i])>=58 && (int)(a[i])<=64) || ((int)(a[i])>=91 && (int)(a[i])<=96))
+            {
+                c++;
+            }
+        }
+        System.out.println(c);
+    }
+    
+}
