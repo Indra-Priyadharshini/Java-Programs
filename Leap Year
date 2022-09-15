@@ -1,0 +1,26 @@
+//Write a Java Program to check whether the given year is leap year or not.
+
+import java.util.*;
+class Main
+{
+public static void main(String s[])
+{
+int year;
+Scanner s1=new Scanner(System.in);
+year=s1.nextInt();
+if(year%4==0)
+{
+    if(year%100==0)
+    {
+    if(year%400==0)
+    System.out.println("Leap Year");
+    else
+    System.out.println("Not a Leap Year");
+    }
+    else
+    System.out.println("Leap Year");   
+}
+else
+System.out.println("Not a Leap Year");
+}
+}
