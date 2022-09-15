@@ -1,0 +1,30 @@
+/*Create an array of size n and read values for array. Iterate through array and calculate the sum of elements in array. Print the sum.
+Input:
+Integer, n. 
+Set of n integers.
+Output:
+Print the sum of Array.
+Sample Input:
+6
+5 14 15 20 18 36 
+Sample Output:
+108*/
+
+import java.util.Scanner;
+class Main {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        
+        int arr[] = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            sum += arr[i];
+        }
+        System.out.println(sum);
+    }
+}
