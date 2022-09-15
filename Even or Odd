@@ -1,0 +1,20 @@
+/*Read a number and print whether it is even or odd using Java
+Sample Input:
+5
+Sample Output
+Odd Number*/
+
+
+import java.util.Scanner;
+class Main{
+    public static void main(String args[]){
+        Scanner input = new Scanner(System.in);
+        int num = input.nextInt();
+        if(num%2==0){
+            System.out.println("Even Number");
+        }
+        else{
+            System.out.println("Odd Number");
+        }
+    }
+}
