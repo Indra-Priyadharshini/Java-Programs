@@ -1,0 +1,23 @@
+/*Read an integer and print its multiplication table.
+Sample I/O:
+2
+2*1=2
+2*2=4
+2*3=6
+.
+.
+.
+2*10=20*/
+
+import java.util.*;
+class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        for(int i=1;i<=10;i++)
+        {
+            System.out.println(n+"*"+i+"="+(n*i));
+        }
+    }
