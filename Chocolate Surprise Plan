@@ -1,0 +1,26 @@
+/*Kids Play school is planning for a slow walk race for 'n' children. The kid who touches the finishing line first gets 0 chocolate.
+The second kid gets 1 chocolate. The numer of chocolates the third kid gets is the sum of chocolates given to first and second kid. 
+Fourth kid gets sum of chocolates of second and third kids and it goes on. Print the number of chocolates got by each kid. 
+Sample Input:
+5 - Number of Children - Integer
+Sample Output:
+0 1 1 2 3 */
+
+import java.util.*;
+public class Main{
+    public static void main(String u[]){
+        Scanner input= new Scanner(System.in);
+        int n=input.nextInt();
+        int f,s,t;
+        f=0;
+        s=1;
+        System.out.print(f+" ");
+        System.out.print(s+" ");
+        for(int i=2;i<n;i++){
+            t=f+s;
+            f=s;
+            s=t;
+            System.out.print(t+" ");
+        }
+    }
+}
