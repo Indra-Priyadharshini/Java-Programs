@@ -1,0 +1,45 @@
+import java.util.*;
+import java.io.*;
+class Emp{
+    int eno,sal;
+    String ename,des;
+    Emp(){}
+    void read(Scanner sc){
+        if(sc.hasNextInt()){
+            eno = sc.nextInt();
+            ename = sc.next();
+            des = sc.next();
+            sal = sc.nextInt();
+        }
+    }
+    void print(){
+        System.out.println("Eno: " + eno);
+        System.out.println("Ename: " + ename);
+        System.out.println("Designation: " + des);
+        System.out.println("Salary: " + sal);
+    }
+}
+class Manager extends Emp{
+    int temp,tsup;
+    Manager(){}
+    void readData(Scanner sc){
+        if(sc.hasNextInt()){
+            temp = sc.nextInt();
+            tsup = sc.nextInt();
+        }
+    }
+    void printData(){
+        System.out.println("Total employees in the dept: " + temp);
+        System.out.println("Total supervisors in the dept: " + tsup);
+    }
+}
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        Manager m = new Manager();
+        m.read(sc);
+        m.print();
+        m.readData(sc);
+        m.printData();
+    }
+}
