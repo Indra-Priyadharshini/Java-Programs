@@ -1,0 +1,61 @@
+/*Design a class called Product to store the details of Products added to a shopping cart. Include necessary instance variables to define the properties of Product such as product number, name, category, quantity, price etc., Include the required constructors to initialize objects. Define instance methods readProd(), printProd() to read and print the details of Product objects. 
+The maximum quantity that can be ordered in each product is 3. Define a private instance method to check the quantity limit. If the qty exceeds the limit, change the qty to 3. 
+Define another instance method that takes objects as arguments to print the total bill amount. 
+Create two objects C1 and C2 as specified below. 
+C1() - no arguments sent 
+C2(100,"Note", "Stationery", 50.00,3) 
+Sample Output:
+99 Biscut Grocery 45.0 7
+Output:
+99 Biscut Grocery 45.0 3 
+100 Note Stationery 50.0 3
+Bill Amount: Rs. 285.0*/
+import java.util.Scanner;
+class Product{
+    int pno;
+    String Name;
+    String cat;
+    double price;
+    int qty;
+    Product(){ }
+    Product(int a, String b, String c, double d, int e){
+        pno=a;
+        Name=b;
+        cat=c;
+        price=d;
+        qty=e;
+    }
+    
+    void readData(Scanner s){
+        pno=s.nextInt();
+        Name=s.next();
+        cat=s.next(); 
+        price=s.nextDouble();
+        qty=s.nextInt();
+        this.checkLimit();
+    }
+    void printData(){
+        System.out.println(pno+" "+Name+" "+cat+" "+price+" "+qty);
+    }
+    private void checkLimit(){
+        if(qty>3)
+        qty=3;
+    }
+    static void calcAmount(Product pp, Product qq){
+        double amt=(pp.price*pp.qty)+(qq.price*qq.qty);
+        System.out.println("Bill Amount: Rs. "+amt);
+    }
+    
+}
+class Main{
+    public static void main(String args[]){
+        Product p1=new Product();
+        Product p2=new Product(100,"Note","Stationery",50.00,3);
+        Scanner ss=new Scanner(System.in);
+        p1.readData(ss);
+        p1.printData();
+       // p2.readData(ss);
+        p2.printData();
+        Product.calcAmount(p1,p2);
+    }
+}
