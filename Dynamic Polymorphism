@@ -1,0 +1,99 @@
+/*Create three classes Person, Professor and Student. The class Person should have data members name and age. The classes Professor and Student should inherit from the class Person.
+The class Professor should have two integer members: publications and Empid. There will be two instance methods: getdata and putdata. The function getdata should get the input from the user: the name, age and publications of the professor. The function putdata should print the name, age, publications and the Empid of the professor.
+The class Student should have two data fields: marks, which is an array of size 3  and studID. It has two instance methods: getdata and putdata. The function getdata should get the input from the user: the name, age, and the marks of the student in 3 subjects. The function putdata should print the name, age, sum of the marks and the studID of the student.
+For each object being created of the Professor or the Student class, sequential id's should be assigned to them starting from 1 .
+Solve this problem using dynamic polymorphism, constructors and static variables.  Create two objects each for both Professor Class and Student Class.
+Sample Input:
+Walter 50 98
+Jessie 25 15
+White 18 89 96 96
+Pinkman 19 54 52 45
+Sample Output:
+Name:Walter
+Age:50
+Publications:98
+Professor ID:1
+Name:Jessie
+Age:25 
+Publications:15
+Professor ID:2
+Name:White
+Age:18
+Mark1:89
+Mark2:96
+Mark3:96
+Student ID:1
+Name:Pinkman
+Age:19
+Mark1:54
+Mark2:52
+Mark3:45
+Student ID:2*/
+import java.util.Scanner;
+class Person{
+public String name;
+public int age;
+Person(){
+name = "*";
+age = 0;
+}
+public void getdata(Scanner sc){
+name = sc.next();
+age = sc.nextInt();
+}
+public void putdata(){
+System.out.println(name + " " + age);
+}
+}
+
+class Professor extends Person{
+public int publications;
+static int Empid = 0;
+Professor(){
+publications = 0;
+Empid++;
+}
+public void getdata(Scanner sc){
+name = sc.next();
+age = sc.nextInt();
+publications = sc.nextInt();
+}
+public void putdata(){
+System.out.println(name + " " + age + " " + publications + " ID:" + Empid);
+}
+}
+
+class Student extends Person{
+int [] m = new int[3];
+static int studID = 0;
+Student(){
+studID++;
+}
+public void getdata(Scanner sc){
+name = sc.next();
+age = sc.nextInt();
+for (int i = 0; i < 3; i++)
+m[i] = sc.nextInt();
+}
+public void putdata(){
+System.out.println(name + " " + age + " " + m[0] + " " + m[1] + " " + m[2] + " ID:" + studID);
+}
+}
+
+public class Main{
+public static void main(String [] args){
+Scanner sc = new Scanner(System.in);
+Person p1 = new Professor();
+p1.getdata(sc);
+p1.putdata();
+p1 = new Professor();
+p1.getdata(sc);
+p1.putdata();
+p1 = new Student();
+p1.getdata(sc);
+p1.putdata();
+p1 = new Student();
+p1.getdata(sc);
+p1.putdata();
+}
+}
