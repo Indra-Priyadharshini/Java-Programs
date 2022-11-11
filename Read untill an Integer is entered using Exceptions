@@ -1,0 +1,28 @@
+/*Read an integer from the user and print it. If any input other than integer is entered,
+raise an exception to user saying "Invalid Input, Integer required" and continue to read from the user until he enters a valid integer.*/
+
+
+import java.util.*;
+
+  public class Main {
+  public static void main(String[] args) {
+  Scanner input = new Scanner(System.in);
+  boolean continueInput = true;
+ 
+ do {
+ try {
+ //System.out.print("Enter an integer: ");
+ int number = input.nextInt();
+
+ // Display the result
+ System.out.println(
+ "The Number entered is " + number);
+ continueInput = false;
+}
+catch (InputMismatchException ex) {
+ System.out.println("Invalid Input, Integer required");
+input.nextLine(); // Discard input
+ }
+} while (continueInput);
+}
+ }
