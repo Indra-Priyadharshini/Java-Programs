@@ -1,0 +1,94 @@
+/*Create a super class to store the basic details of a movie ticket - quantity and price. The basic price of each movie ticket is Rs.250/-. 
+Define calcBill() method to read quantity and display the bill amount. 
+Type of movie ticket is either premium or economic. Derive two sub classes to represent the specific tickets such as 1) Premium 2) Economic. 
+In addition to movie, people with premium tickets can have food delivery and game station entry. People with economic tickets can only avail food along with movie.  
+The cost of food combo is as follows, Food Combo 1 - Rs.800/-  Food combo 2 - Rs.500/- Food Combo 3 - Rs.300/-.
+The cost for game station entry per ticket is Rs.250/- Override the calcBill() method to read quantity, food combo for each ticket, 
+calculate and display the bill amount.
+Read the choice of the user for the type of ticket, create the respective object and call the method to print the bill amount. 
+Use Dynamic Polymorphism to implement the solution.
+Sample I/O:
+1 – type
+3 – number of tickets
+1 – Food Combo choice number
+1 – Food Combo choice number
+3 – Food Combo choice number
+Bill Amount:Rs.3400
+Explanation: Food combo choice for each ticket is read from the user. In the abve case, Ticket Price - 250*3 Food combo - 800+800+300 Game station - 250*3 ---> (250*3)+800+800+300+(250*3) = 3400
+Sample I/O:
+2 - type of ticket
+1 - No. of tickets
+3 - Food Combo choice number
+Bill Amount:Rs.550
+Explanation: 1*250(ticket price) +300(Food combo price)=550
+(Hint: Read the input for type in main(), accordingly create child class object and call the calcBill(Scanner), read qty, food combo choice inside calcBill(Scanner). 
+Send Scanner class object as argument to calcBill method. Create Parent class reference and point it to child class object for dynamic polymorphism.)*/
+
+import java.util.*;
+class Ticket{
+
+    int price,qty;
+    Ticket(){
+        price=250;
+    }
+    public void printBill(Scanner s2){
+        System.out.println("Bill Amount:Rs."+qty*price);
+    }
+}
+class Premium extends Ticket{
+    int fc,amount;
+    Premium(){
+        price=250;}
+    
+    public void printBill(Scanner ss){
+        qty=ss.nextInt();
+        for(int i=0;i<qty;i++){
+            fc=ss.nextInt();
+            if(fc==1)
+            amount+=800;
+            else if(fc==2)
+            amount+=500;
+            else
+            amount+=300;
+        }
+      //  System.out.println(amount);
+        amount+=(qty*price)+(qty*250);
+        System.out.println("Bill Amount:Rs."+amount);
+    }
+}
+class Economic extends Ticket{
+    int fc,amount;
+    Economic(){
+        price=250;
+    }
+    public void printBill(Scanner s1){
+         //Scanner s1=new Scanner(System.in);
+        qty=s1.nextInt();
+        for(int i=0;i<qty;i++){
+            fc=s1.nextInt();
+            if(fc==1)
+            amount+=800;
+            else if(fc==2)
+            amount+=500;
+            else
+            amount+=300;
+        }
+        amount+=(qty*price);
+        System.out.println("Bill Amount:Rs."+amount);
+    }
+}
+class Main{
+    public static void main(String s[]){
+        Ticket T;
+        int type;
+        Scanner ip=new Scanner(System.in);
+        type=ip.nextInt();
+        if(type==1){
+            T=new Premium();
+            T.printBill(ip);
+        }
+        else if(type==2){
+            T=new Economic();
+            T.printBill(ip);
+        }
+    }}
