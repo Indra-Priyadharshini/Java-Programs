@@ -1,0 +1,53 @@
+/*XYZ Shop announces exclusive offer sale for three products 1. Shoes 2. Perfume 3. Chocolate. 
+Implement readData(Scanner) -  to read the Product name, qty and price from each user, and calculate the amount, printData()- print the bill. 
+The customer is restricted to choose the products into shopping cart based on the following conditions. 
+1) Customer can't buy more than one Shoe. 2) Bill amount can't exceed 1500 while buying Perfumes 3) Customer can't buy more than 20 Chocalates.
+Create InvalidChoiceException class. Raise InvalidChoiceExcepion if the user is voilating the restrictions while choosing products.
+(Assume customer buys only one product at a time)
+Hint: Raise all the exceptions inside readData() method*/
+
+import java.util.*;
+class InvalidChoiceException extends Exception{
+    public InvalidChoiceException(String msg){
+        super(msg);
+    }
+}
+class Product{
+    String name;
+    int qty;
+    double price;
+    double amount;
+    void readData(Scanner sc)throws InvalidChoiceException{
+        name=sc.next();
+        qty=sc.nextInt();
+        price=sc.nextDouble();
+        amount=price*qty;
+        if(name.equals("Shoe")&&qty>1)
+        throw new InvalidChoiceException("You can not buy more than one Shoe");
+        else if(name.equals("Perfume")&&amount>1500)
+        throw new InvalidChoiceException("Bill Amount can not exceed Rs.1500");      
+        else if(name.equals("Chocolate")&&qty>20) 
+        throw new InvalidChoiceException("You can not choose more than 20 Chocolates");
+        printData();
+    }
+    void printData(){
+        System.out.println("Product Name:"+name);
+        System.out.println("Quantity:"+qty);
+        System.out.println("Price:"+price);
+        System.out.println("Bill Amount:"+amount);
+        
+    }
+    
+}
+class Main{
+    public static void main(String s[]){
+    Product p1=new Product();
+    Scanner ip=new Scanner(System.in);
+    try{
+    p1.readData(ip);}
+    catch (InvalidChoiceException e){
+        System.out.println(e);
+    }
+    
+    
+}}
